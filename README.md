@@ -29,8 +29,8 @@ To set up the project locally:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/MohamedAklamaash/ManageMoneyWithAI.git
-   cd ManageMoneyWithAI
+   git clone https://github.com/harshanj07/AI-Finance-app.git
+   cd AI-Finance-app
    ```
 
 2. **Install dependencies**:
