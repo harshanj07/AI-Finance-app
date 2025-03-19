@@ -1,0 +1,1 @@
+AI-Finance-app is an AI-driven personal finance management application designed to help users effectively track expenses, manage budgets, and make informed financial decisions. Leveraging advanced machine learning algorithms, the app provides personalized insights to optimize spending habits and enhance financial literacy.
