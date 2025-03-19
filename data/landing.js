@@ -84,21 +84,21 @@ export const howItWorksData = [
 // Testimonials Data
 export const testimonialsData = [
   {
-    name: "Laxman",
+    name: "Shri Vishaal",
     role: "Data Analyst",
     image: laxmanpic,
     quote:
       "ManageMoney has revolutionized how I manage my business finances. The AI-powered insights have uncovered cost-saving opportunities that I never imagined.",
   },
   {
-    name: "ParamaGuru",
+    name: "Ashvanth",
     role: "Freelancer & AI Enthusiast",
     image: paramapic,
     quote:
       "The receipt scanning feature has saved me countless hours each month. It has simplified my financial tracking, allowing me to focus more on my work and less on manual tasks.",
   },
   {
-    name: "Arun Prakash",
+    name: "Aklamaash",
     role: "Data Scientist",
     image: arunpic,
     quote:
