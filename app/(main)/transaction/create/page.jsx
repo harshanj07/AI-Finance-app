@@ -7,7 +7,8 @@ import { getTransaction } from "@/actions/transaction";
 // This is now a Server Component
 export default async function AddTransactionPage({ searchParams }) {
   const accounts = await getUserAccounts();
-  const editId = searchParams?.edit;
+  const resolvedParams = await searchParams;
+  const editId = resolvedParams?.edit;
 
   let initialData = null;
   if (editId) {
