@@ -27,7 +27,7 @@ export async function getUserAccounts() {
 
 
   if (!user) {
-    throw new Error("User not found");
+    return [];
   }
 
   try {
@@ -119,7 +119,7 @@ export async function getDashboardData() {
   });
 
   if (!user) {
-    throw new Error("User not found");
+    return [];
   }
 
   // Get all user transactions
