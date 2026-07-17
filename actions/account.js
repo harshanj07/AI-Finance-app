@@ -1,8 +1,9 @@
 "use server";
 
 import { db } from "@/lib/prisma";
-import { auth,currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 const serializeDecimal = (obj) => {
   const serialized = { ...obj };
@@ -18,7 +19,7 @@ const serializeDecimal = (obj) => {
 export async function getAccountWithTransactions(accountId) {
   const clerk = await currentUser();
   if (!clerk) {
-    throw new Error("Unauthorized")
+    redirect("/sign-in");
   }
   const user = await db.user.findUnique({
     where: { email: clerk.emailAddresses[0]?.emailAddress },
@@ -53,7 +54,7 @@ export async function bulkDeleteTransactions(transactionIds) {
   try {
     const clerk = await currentUser();
     if (!clerk) {
-      throw new Error("Unauthorized")
+      redirect("/sign-in");
     }
     const user = await db.user.findUnique({
       where: { email: clerk.emailAddresses[0]?.emailAddress },
@@ -117,7 +118,7 @@ export async function updateDefaultAccount(accountId) {
   try {
     const clerk = await currentUser();
     if (!clerk) {
-      throw new Error("Unauthorized")
+      redirect("/sign-in");
     }
     const user = await db.user.findUnique({
       where: { email: clerk.emailAddresses[0]?.emailAddress },

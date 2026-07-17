@@ -4,6 +4,7 @@ import aj from "@/lib/arcjet";
 import { db } from "@/lib/prisma";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 const serializeTransaction = (obj) => {
   const serialized = { ...obj };
@@ -19,7 +20,7 @@ const serializeTransaction = (obj) => {
 export async function getUserAccounts() {
   const clerk = await currentUser();
   if (!clerk) {
-    throw new Error("Unauthorized")
+    redirect("/sign-in");
   }
   const user = await db.user.findUnique({
     where: { email: clerk.emailAddresses[0]?.emailAddress },
@@ -112,7 +113,7 @@ export async function createAccount(data) {
 export async function getDashboardData() {
   const clerk = await currentUser();
   if (!clerk) {
-    throw new Error("Unauthorized")
+    redirect("/sign-in");
   }
   const user = await db.user.findUnique({
     where: { email: clerk.emailAddresses[0]?.emailAddress },
